@@ -114,13 +114,13 @@
 		<key>format</key>
 		<integer>2</integer>
 		<key>realTextureFileName</key>
-		<string>ememy.png</string>
+		<string>enemy.png</string>
 		<key>size</key>
 		<string>{30,250}</string>
 		<key>smartupdate</key>
 		<string>$TexturePacker:SmartUpdate:cd739f1a8d6be1b143b891b76a1810dd:80f5ff59b60cae16bda9564f76fb6e63:8753da9466d348544d9bc98b68598660$</string>
 		<key>textureFileName</key>
-		<string>ememy.png</string>
+		<string>enemy.png</string>
 	</dict>
 </dict>
 </plist>

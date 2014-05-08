@@ -6,16 +6,19 @@
 //
 //
 
-#ifndef __myProject__Player__
-#define __myProject__Player__
+#ifndef __CharGame__Player__
+#define __CharGame__Player__
 
-#include <cocos2d.h>
+#include "cocos2d.h"
 
 class Player : public cocos2d::Sprite
 {
 public:    
     static Player* create();
+    void initPhysicsBody();
     void run();
+    void shot();
+    void move(cocos2d::Acceleration* acc);
 };
 
-#endif /* defined(__myProject__Player__) */
+#endif /* defined(__CharGame__Player__) */

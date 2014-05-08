@@ -6,18 +6,19 @@
 //
 //
 
-#ifndef __myProject__Enemy__
-#define __myProject__Enemy__
+#ifndef __CharGame__Enemy__
+#define __CharGame__Enemy__
 
-#include <cocos2d.h>
+#include "cocos2d.h"
 
 class Enemy : public cocos2d::Sprite
 {
 public:
     static Enemy* create();
+    void initPhysicsBody();
     void run();
-    void move();
-    void moveSine();
+    void update(float delta);
+    void destroy();
 };
 
-#endif /* defined(__myProject__Enemy__) */
+#endif /* defined(__CharGame__Enemy__) */

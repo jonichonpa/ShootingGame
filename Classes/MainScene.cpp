@@ -7,21 +7,16 @@
 //
 
 #include "MainScene.h"
+#include "NormalShot.h"
+#include "BitMaskConfig.h"
 
 USING_NS_CC;
 
 Scene* MainScene::createScene()
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
+    auto scene = Scene::createWithPhysics();
     auto layer = MainScene::create();
-    
-    // add layer as a child to scene
     scene->addChild(layer);
-    
-    // return the scene
     return scene;
 }
 
@@ -33,15 +28,6 @@ bool MainScene::init()
         return false;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Point origin = Director::getInstance()->getVisibleOrigin();
-    
-    auto label = LabelTTF::create("ゲーム画面", "Arial", 24);
-    label->setPosition(Point(origin.x + visibleSize.width/2,
-                             origin.y + visibleSize.height - label->getContentSize().height));
-    this->addChild(label, 1);
-    
-    setChargeSystem();
     
     player = Player::create();
     player->setPosition(100,100);
@@ -50,6 +36,20 @@ bool MainScene::init()
     
     this->scheduleUpdate();
     srand((unsigned)time(nullptr));
+    
+    // ジャイロセンサー
+    Device::setAccelerometerEnabled(true);
+    auto listener = EventListenerAcceleration::create(CC_CALLBACK_2(MainScene::onGyro, this));
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+    dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    // 衝突検知
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(MainScene::onContactBegin, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
+    
+    // タッチによるショット
+    setChargeSystem();
     
     return true;
 }
@@ -77,17 +77,17 @@ bool MainScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 void MainScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     this->unschedule(chargeSEL);
+    player->shot();
 }
 
 void MainScene::charge(float f)
 {
-    CCLOG("charge");
+    //CCLOG("charge");
 }
 
 void MainScene::update(float delta)
 {
     encountEnemy();
-    moveEnemy();
 }
 
 void MainScene::encountEnemy()
@@ -97,19 +97,30 @@ void MainScene::encountEnemy()
 	{
         Enemy *enemy = Enemy::create();
         enemy->setPosition(rand() % 500 + 50, 1000);
-        enemies.pushBack(enemy);
         this->addChild(enemy);
         enemy->run();
 	}
 }
 
-void MainScene::moveEnemy()
+void MainScene::onGyro(cocos2d::Acceleration *acc, cocos2d::Event *event)
 {
-    // 敵の移動と消去
-    for(Enemy *enemy : enemies){
-        enemy->move();
-        if (enemy->getPositionY() < -30) {
-            enemy->removeFromParent();
-        }
+    player->move(acc);
+}
+
+bool MainScene::onContactBegin(cocos2d::PhysicsContact &contact)
+{
+    auto pb_a = contact.getShapeA()->getBody();
+    auto pb_b = contact.getShapeB()->getBody();
+    //auto node_a = pb_a->getNode();
+    //auto node_b = pb_b->getNode();
+    CCLOG("%x %x",pb_a->getCategoryBitmask(),pb_b->getCategoryBitmask());
+    if(pb_a->getCategoryBitmask() == ENEMY_CATEGORY && pb_b->getCategoryBitmask() == NORMALSHOT_CATEGORY){
+        auto node_a = (Enemy*) pb_a->getNode();
+        node_a->destroy();
+        auto node_b = (NormalShot*) pb_b->getNode();
+        node_b->destroy();
+    } else {
+        log("contact");
     }
+    return true;
 }

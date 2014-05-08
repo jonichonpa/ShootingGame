@@ -62,6 +62,10 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		8D11371D191B4B6F0077BFA0 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8811919F1CA00E342DC /* MainScene.cpp */; };
+		8D113720191B4B730077BFA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8731919EADC00E342DC /* MenuScene.cpp */; };
+		8D113721191B4B7A0077BFA0 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8A8191A350900E342DC /* Enemy.cpp */; };
+		8D113722191B4B7D0077BFA0 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E888191A080700E342DC /* Player.cpp */; };
 		8D32E8751919EADC00E342DC /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8731919EADC00E342DC /* MenuScene.cpp */; };
 		8D32E8831919F1CA00E342DC /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8811919F1CA00E342DC /* MainScene.cpp */; };
 		8D32E8861919F51900E342DC /* startBtn_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8841919F51900E342DC /* startBtn_press.png */; };
@@ -72,6 +76,24 @@
 		8D32E8A5191A34E500E342DC /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8A3191A34E500E342DC /* enemy.png */; };
 		8D32E8A6191A34E500E342DC /* enemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8A4191A34E500E342DC /* enemy.plist */; };
 		8D32E8AA191A350900E342DC /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D32E8A8191A350900E342DC /* Enemy.cpp */; };
+		8D3C0C81191B5093001C7E93 /* startBtn_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8841919F51900E342DC /* startBtn_press.png */; };
+		8D3C0C84191B5096001C7E93 /* startBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8851919F51900E342DC /* startBtn.png */; };
+		8D3C0C85191B5099001C7E93 /* spaceships.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E89F191A322D00E342DC /* spaceships.png */; };
+		8D3C0C86191B509B001C7E93 /* spaceships.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8A0191A322D00E342DC /* spaceships.plist */; };
+		8D3C0C87191B509E001C7E93 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8A3191A34E500E342DC /* enemy.png */; };
+		8D3C0C88191B50A0001C7E93 /* enemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D32E8A4191A34E500E342DC /* enemy.plist */; };
+		8D3C0C8B191B6086001C7E93 /* Shot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0C89191B6086001C7E93 /* Shot.plist */; };
+		8D3C0C8C191B6086001C7E93 /* Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0C8A191B6086001C7E93 /* Shot.png */; };
+		8D3C0C8D191B6091001C7E93 /* Shot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0C89191B6086001C7E93 /* Shot.plist */; };
+		8D3C0C8E191B6094001C7E93 /* Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0C8A191B6086001C7E93 /* Shot.png */; };
+		8D3C0C91191B60AE001C7E93 /* NormalShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C0C8F191B60AE001C7E93 /* NormalShot.cpp */; };
+		8D3C0C92191B60AE001C7E93 /* NormalShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C0C8F191B60AE001C7E93 /* NormalShot.cpp */; };
+		8D3C0C96191B626A001C7E93 /* AbstractShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C0C94191B626A001C7E93 /* AbstractShot.cpp */; };
+		8D3C0C97191B626A001C7E93 /* AbstractShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C0C94191B626A001C7E93 /* AbstractShot.cpp */; };
+		8D3C0CA9191B8EF2001C7E93 /* Explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0CA7191B8EF2001C7E93 /* Explosion.plist */; };
+		8D3C0CAA191B8EF2001C7E93 /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0CA8191B8EF2001C7E93 /* Explosion.png */; };
+		8D3C0CAB191B8EF7001C7E93 /* Explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0CA8191B8EF2001C7E93 /* Explosion.png */; };
+		8D3C0CAC191B8EFA001C7E93 /* Explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C0CA7191B8EF2001C7E93 /* Explosion.plist */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -284,6 +306,15 @@
 		8D32E8A4191A34E500E342DC /* enemy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy.plist; sourceTree = "<group>"; };
 		8D32E8A8191A350900E342DC /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		8D32E8A9191A350900E342DC /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		8D3C0C89191B6086001C7E93 /* Shot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Shot.plist; sourceTree = "<group>"; };
+		8D3C0C8A191B6086001C7E93 /* Shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shot.png; sourceTree = "<group>"; };
+		8D3C0C8F191B60AE001C7E93 /* NormalShot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShot.cpp; path = ../Classes/NormalShot.cpp; sourceTree = "<group>"; };
+		8D3C0C90191B60AE001C7E93 /* NormalShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShot.h; path = ../Classes/NormalShot.h; sourceTree = "<group>"; };
+		8D3C0C94191B626A001C7E93 /* AbstractShot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractShot.cpp; path = ../Classes/AbstractShot.cpp; sourceTree = "<group>"; };
+		8D3C0C95191B626A001C7E93 /* AbstractShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractShot.h; path = ../Classes/AbstractShot.h; sourceTree = "<group>"; };
+		8D3C0CA6191B878A001C7E93 /* BitMaskConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitMaskConfig.h; path = ../Classes/BitMaskConfig.h; sourceTree = "<group>"; };
+		8D3C0CA7191B8EF2001C7E93 /* Explosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Explosion.plist; sourceTree = "<group>"; };
+		8D3C0CA8191B8EF2001C7E93 /* Explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -360,6 +391,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8D3C0CA3191B8764001C7E93 /* Config */,
 				8D32E8A7191A34F800E342DC /* Sprites */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
@@ -493,6 +525,10 @@
 				8D32E8A0191A322D00E342DC /* spaceships.plist */,
 				8D32E8A3191A34E500E342DC /* enemy.png */,
 				8D32E8A4191A34E500E342DC /* enemy.plist */,
+				8D3C0C89191B6086001C7E93 /* Shot.plist */,
+				8D3C0C8A191B6086001C7E93 /* Shot.png */,
+				8D3C0CA7191B8EF2001C7E93 /* Explosion.plist */,
+				8D3C0CA8191B8EF2001C7E93 /* Explosion.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -505,8 +541,20 @@
 				8D32E889191A080700E342DC /* Player.h */,
 				8D32E8A8191A350900E342DC /* Enemy.cpp */,
 				8D32E8A9191A350900E342DC /* Enemy.h */,
+				8D3C0C8F191B60AE001C7E93 /* NormalShot.cpp */,
+				8D3C0C90191B60AE001C7E93 /* NormalShot.h */,
+				8D3C0C94191B626A001C7E93 /* AbstractShot.cpp */,
+				8D3C0C95191B626A001C7E93 /* AbstractShot.h */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		8D3C0CA3191B8764001C7E93 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8D3C0CA6191B878A001C7E93 /* BitMaskConfig.h */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,6 +721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3C0C8C191B6086001C7E93 /* Shot.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				8D32E8A5191A34E500E342DC /* enemy.png in Resources */,
@@ -683,6 +732,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				8D3C0CAA191B8EF2001C7E93 /* Explosion.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				8D32E8A6191A34E500E342DC /* enemy.plist in Resources */,
@@ -693,6 +743,8 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				8D32E8861919F51900E342DC /* startBtn_press.png in Resources */,
 				8D32E8A1191A322D00E342DC /* spaceships.png in Resources */,
+				8D3C0C8B191B6086001C7E93 /* Shot.plist in Resources */,
+				8D3C0CA9191B8EF2001C7E93 /* Explosion.plist in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				8D32E8871919F51900E342DC /* startBtn.png in Resources */,
@@ -705,8 +757,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3C0C81191B5093001C7E93 /* startBtn_press.png in Resources */,
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
+				8D3C0C85191B5099001C7E93 /* spaceships.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				8D3C0CAB191B8EF7001C7E93 /* Explosion.png in Resources */,
+				8D3C0C84191B5096001C7E93 /* startBtn.png in Resources */,
+				8D3C0C8D191B6091001C7E93 /* Shot.plist in Resources */,
+				8D3C0C88191B50A0001C7E93 /* enemy.plist in Resources */,
+				8D3C0CAC191B8EFA001C7E93 /* Explosion.plist in Resources */,
+				8D3C0C87191B509E001C7E93 /* enemy.png in Resources */,
+				8D3C0C86191B509B001C7E93 /* spaceships.plist in Resources */,
+				8D3C0C8E191B6094001C7E93 /* Shot.png in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
 				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 			);
@@ -722,12 +784,14 @@
 				8D32E88A191A080700E342DC /* Player.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				8D32E8751919EADC00E342DC /* MenuScene.cpp in Sources */,
+				8D3C0C96191B626A001C7E93 /* AbstractShot.cpp in Sources */,
 				8D32E8AA191A350900E342DC /* Enemy.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				8D32E8831919F1CA00E342DC /* MainScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
+				8D3C0C91191B60AE001C7E93 /* NormalShot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,9 +799,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D113721191B4B7A0077BFA0 /* Enemy.cpp in Sources */,
+				8D113722191B4B7D0077BFA0 /* Player.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
+				8D11371D191B4B6F0077BFA0 /* MainScene.cpp in Sources */,
+				8D113720191B4B730077BFA0 /* MenuScene.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				8D3C0C97191B626A001C7E93 /* AbstractShot.cpp in Sources */,
+				8D3C0C92191B60AE001C7E93 /* NormalShot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,7 +871,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yoshiaki Satoh (6ALNHES836)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -832,7 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yoshiaki Satoh (6ALNHES836)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -937,6 +1007,7 @@
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -965,6 +1036,7 @@
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

@@ -27,7 +27,7 @@ public:
     
 private:
     void setChargeSystem();
-    // イベントリスナー
+    // イベント
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void charge(float f);
@@ -36,14 +36,15 @@ private:
     void encountEnemy();
     // 出現している敵の移動
     void moveEnemy();
+    // ジャイロセンサー
+    void onGyro(cocos2d::Acceleration* acc, cocos2d::Event* event);
+    // 衝突
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
     
     cocos2d::SEL_SCHEDULE chargeSEL;
     
     // プレーヤー
     Player *player;
-    
-    // 敵
-    cocos2d::Vector<Enemy*> enemies;
 };
 
 #endif /* defined(__CharGame__MainScene__) */
