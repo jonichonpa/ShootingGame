@@ -8,11 +8,17 @@
 
 #include "Enemy.h"
 #include "BitMaskConfig.h"
+#include "TagConfig.h"
 
 USING_NS_CC;
 
+static const int ENEMY_ANIMATION_TAG = 1;
+
 Enemy* Enemy::create()
 {
+    static SpriteBatchNode* spriteBatch1 = SpriteBatchNode::create("enemy.png");
+    static SpriteBatchNode* spriteBatch2 = SpriteBatchNode::create("Explosion.png");
+    
     Enemy *enemy = new Enemy();
     if (enemy && enemy->init()) {
         enemy->setScale(2.0f);
@@ -26,19 +32,19 @@ Enemy* Enemy::create()
 
 void Enemy::initPhysicsBody()
 {
-    auto pb = PhysicsBody::createBox(Size(24,30));
+    auto pb = PhysicsBody::createBox(Size(30,30));
     pb->setRotationEnable(false);
     pb->setCategoryBitmask(ENEMY_CATEGORY);
     pb->setCollisionBitmask(0);
-    pb->setContactTestBitmask(PLAYER_CATEGORY | NORMALSHOT_CATEGORY);
+    pb->setContactTestBitmask(PLAYER_CATEGORY | NORMALSHOT_CATEGORY | POWERSHOT_CATEGORY);
     pb->setVelocityLimit(0.0f);
     pb->setDynamic(true);
+    pb->setTag(ENEMY_TAG);
     this->setPhysicsBody(pb);
 }
 
 void Enemy::run()
 {
-    SpriteBatchNode* spritebatch = SpriteBatchNode::create("enemy.png");
     SpriteFrameCache* cache = SpriteFrameCache::getInstance();
     cache->addSpriteFramesWithFile("enemy.plist");
     Vector<SpriteFrame*> animFrames(8);
@@ -48,29 +54,41 @@ void Enemy::run()
         animFrames.pushBack(frame);
     }
     Animation* animation = Animation::createWithSpriteFrames(animFrames, 0.01f);
-    setTag(1);
-    runAction(RepeatForever::create(Animate::create(animation)));
+    Action *action = RepeatForever::create(Animate::create(animation));
+    action->setTag(ENEMY_ANIMATION_TAG);
+    runAction(action);
     scheduleUpdate();
 }
 
 void Enemy::update(float delta)
 {
-    this->setPositionY(this->getPositionY()-5);
+    setPositionY(getPositionY()-5);
+    if (getPositionY() < 0) {
+        removeFromParent();
+    };
 }
-
-void Enemy::destroy()
+    
+void Enemy::removeFromParent()
 {
-    SpriteBatchNode* spritebatch = SpriteBatchNode::create("Explosion.png");
+    // 爆発アニメーションの間衝突を避ける
+    getPhysicsBody()->setContactTestBitmask(0x00000000);
+    
     SpriteFrameCache* cache = SpriteFrameCache::getInstance();
     cache->addSpriteFramesWithFile("Explosion.plist");
-    Vector<SpriteFrame*> animFrames(10);
+    Vector<SpriteFrame*> animFrames(11);
     for (int i = 1 ; i < 11 ; i++) {
         std::string str = StringUtils::format("explosion_%02d.png",i);
         SpriteFrame* frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(str);
         animFrames.pushBack(frame);
     }
     Animation* animation = Animation::createWithSpriteFrames(animFrames, 0.05f);
-    stopAllActions();
-    runAction(Animate::create(animation));
+    stopActionByTag(ENEMY_ANIMATION_TAG);
+    Animate *animate = Animate::create(animation);
+    CallFunc *func = CallFunc::create(CC_CALLBACK_0(Enemy::destroy,this));
+    runAction(Sequence::create(animate,func,NULL));
 }
 
+void Enemy::destroy()
+{
+    Sprite::removeFromParent();
+}

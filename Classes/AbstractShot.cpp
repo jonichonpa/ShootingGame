@@ -12,11 +12,9 @@ USING_NS_CC;
 
 void AbstractShot::update(float delta)
 {
-    auto action = MoveTo::create(0.01f, Point(getPositionX(), getPositionY() + 5));
-    runAction(action);
-}
-
-void AbstractShot::destroy()
-{
-    removeFromParent();
+    Size size = Director::getInstance()->getOpenGLView()->getVisibleSize();
+    setPositionY(getPositionY() + 5);
+    if (getPositionY() > size.height) {
+        removeFromParent();
+    }
 }

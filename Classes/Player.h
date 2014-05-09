@@ -18,7 +18,18 @@ public:
     void initPhysicsBody();
     void run();
     void shot();
+    void powerShot();
     void move(cocos2d::Acceleration* acc);
+    void displayChargeBox();
+    void updateChargeBox();
+    void resetChargeBox();
+    int getChargeTime();
+    void removeFromParent() override;
+    void destroy();
+    
+private:
+    cocos2d::ProgressTimer* chargeBox;
+    int chargeTime;
 };
 
 #endif /* defined(__CharGame__Player__) */

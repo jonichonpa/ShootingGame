@@ -1,52 +1,52 @@
 //
-//  NormalShot.cpp
+//  PowerShot.cpp
 //  CharGame
 //
-//  Created by 遠藤 和樹 on 2014/05/08.
+//  Created by 遠藤 和樹 on 2014/05/09.
 //
 //
 
-#include "NormalShot.h"
+#include "PowerShot.h"
 #include "BitMaskConfig.h"
 #include "TagConfig.h"
 
 USING_NS_CC;
 
-NormalShot* NormalShot::create()
+PowerShot* PowerShot::create()
 {
     static SpriteBatchNode* spritebatch = SpriteBatchNode::create("Shot.png");
     
-    NormalShot *normalShot = new NormalShot();
-    if (normalShot && normalShot->init()) {
-        normalShot->setScale(2.0f);
-        normalShot->initPhysicsBody();
-        normalShot->autorelease();
-        return normalShot;
+    PowerShot *powerShot = new PowerShot();
+    if (powerShot && powerShot->init()) {
+        powerShot->setScale(2.0f);
+        powerShot->initPhysicsBody();
+        powerShot->autorelease();
+        return powerShot;
     }
-    CC_SAFE_DELETE(normalShot);
+    CC_SAFE_DELETE(powerShot);
     return nullptr;
 }
 
-void NormalShot::initPhysicsBody()
+void PowerShot::initPhysicsBody()
 {
-    auto pb = PhysicsBody::createBox(Size(14,14));
+    auto pb = PhysicsBody::createBox(Size(26,26));
     pb->setRotationEnable(false);
-    pb->setCategoryBitmask(NORMALSHOT_CATEGORY);
+    pb->setCategoryBitmask(POWERSHOT_CATEGORY);
     pb->setCollisionBitmask(0);
     pb->setContactTestBitmask(ENEMY_CATEGORY);
     pb->setVelocityLimit(0.0f);
     pb->setDynamic(true);
-    pb->setTag(NORMALSHOT_TAG);
+    pb->setTag(POWERSHOT_TAG);
     setPhysicsBody(pb);
 }
 
-void NormalShot::run()
+void PowerShot::run()
 {
     SpriteFrameCache* cache = SpriteFrameCache::getInstance();
     cache->addSpriteFramesWithFile("Shot.plist");
-    Vector<SpriteFrame*> animFrames(3);
-    for (int i = 1 ; i < 4 ; i++) {
-        std::string str = StringUtils::format("NormalShot_%02d.png",i);
+    Vector<SpriteFrame*> animFrames(4);
+    for (int i = 1 ; i < 5 ; i++) {
+        std::string str = StringUtils::format("PowerShot_%02d.png",i);
         SpriteFrame* frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(str);
         animFrames.pushBack(frame);
     }

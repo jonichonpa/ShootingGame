@@ -7,8 +7,12 @@
 //
 
 #include "MainScene.h"
+#include "GameOverScene.h"
 #include "NormalShot.h"
 #include "BitMaskConfig.h"
+#include "PowerShot.h"
+#include "TagConfig.h"
+#include "Background.h"
 
 USING_NS_CC;
 
@@ -28,10 +32,16 @@ bool MainScene::init()
         return false;
     }
     
+    // 背景はスカイブルー
+    //LayerColor* layer = cocos2d::LayerColor::create(Color4B(135,206,235,210));
+    //this->addChild(layer);
+    Background* background = Background::create();
+    this->addChild(background);
     
     player = Player::create();
     player->setPosition(100,100);
     this->addChild(player);
+    player->displayChargeBox();
     player->run();
     
     this->scheduleUpdate();
@@ -70,6 +80,7 @@ void MainScene::setChargeSystem()
 bool MainScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     chargeSEL = schedule_selector(MainScene::charge);
+    player->updateChargeBox();
     this->schedule(chargeSEL, 1.0f);
     return true;
 }
@@ -77,12 +88,16 @@ bool MainScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 void MainScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     this->unschedule(chargeSEL);
-    player->shot();
+    if(player->getChargeTime() > 3) {
+        player->powerShot();
+    } else {
+        player->shot();
+    }
 }
 
 void MainScene::charge(float f)
 {
-    //CCLOG("charge");
+    player->updateChargeBox();
 }
 
 void MainScene::update(float delta)
@@ -111,16 +126,22 @@ bool MainScene::onContactBegin(cocos2d::PhysicsContact &contact)
 {
     auto pb_a = contact.getShapeA()->getBody();
     auto pb_b = contact.getShapeB()->getBody();
-    //auto node_a = pb_a->getNode();
-    //auto node_b = pb_b->getNode();
-    CCLOG("%x %x",pb_a->getCategoryBitmask(),pb_b->getCategoryBitmask());
-    if(pb_a->getCategoryBitmask() == ENEMY_CATEGORY && pb_b->getCategoryBitmask() == NORMALSHOT_CATEGORY){
-        auto node_a = (Enemy*) pb_a->getNode();
-        node_a->destroy();
-        auto node_b = (NormalShot*) pb_b->getNode();
-        node_b->destroy();
+    auto result = pb_a->getCategoryBitmask() + pb_b->getCategoryBitmask();
+    // ノーマルショットと敵
+    if(result == NORMALSHOT_CATEGORY + ENEMY_CATEGORY) {
+        pb_a->getNode()->removeFromParent();
+        pb_b->getNode()->removeFromParent();
+    } else if (result == POWERSHOT_CATEGORY + ENEMY_CATEGORY) {
+    // パワーショットと敵
+        auto enemy = pb_a->getTag() == ENEMY_TAG ? (Enemy*)pb_a->getNode() : (Enemy*)pb_b->getNode();
+        enemy->removeFromParent();
     } else {
-        log("contact");
+    // プレーヤーと敵
+        player->removeFromParent();
+        Scene *nextScene = TransitionFade::create(1.0f, GameOverScene::createScene());
+        if(nextScene){
+            Director::getInstance()->replaceScene(nextScene);
+        }
     }
     return true;
 }

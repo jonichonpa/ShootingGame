@@ -17,7 +17,6 @@ public:
     virtual void run() = 0;
     virtual void initPhysicsBody() = 0;
     void update(float delta);
-    void destroy();
 };
 
 #endif /* defined(__CharGame__AbstractShot__) */

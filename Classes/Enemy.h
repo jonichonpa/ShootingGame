@@ -18,6 +18,7 @@ public:
     void initPhysicsBody();
     void run();
     void update(float delta);
+    void removeFromParent() override;
     void destroy();
 };
 

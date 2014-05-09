@@ -12,5 +12,6 @@
 static const int PLAYER_CATEGORY = 0x1 << 0;
 static const int ENEMY_CATEGORY = 0x1 << 1;
 static const int NORMALSHOT_CATEGORY = 0x1 << 2;
+static const int POWERSHOT_CATEGORY = 0x1 << 3;
 
 #endif
