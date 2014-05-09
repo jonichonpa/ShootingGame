@@ -13,6 +13,7 @@
 #include "PowerShot.h"
 #include "TagConfig.h"
 #include "Background.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -159,6 +160,9 @@ bool MainScene::onContactBegin(cocos2d::PhysicsContact &contact)
             Director::getInstance()->replaceScene(nextScene);
         }
     }
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("boom.wav");
+    
     return true;
 }
 

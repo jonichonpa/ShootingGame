@@ -9,6 +9,7 @@
 #include "Enemy.h"
 #include "BitMaskConfig.h"
 #include "TagConfig.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 

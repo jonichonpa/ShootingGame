@@ -10,6 +10,7 @@
 #include "NormalShot.h"
 #include "PowerShot.h"
 #include "BitMaskConfig.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -92,6 +93,8 @@ void Player::shot()
     normalShot->setPosition(getPosition());
     getParent()->addChild(normalShot);
     normalShot->run();
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("shoot.wav");
     
     resetChargeBox();
 }

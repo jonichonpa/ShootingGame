@@ -113,6 +113,11 @@
 		8D725C81191CD495001BDF3A /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D725C7E191CD495001BDF3A /* Background.cpp */; };
 		8D725C85191CD6F7001BDF3A /* Cloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D725C83191CD6F7001BDF3A /* Cloud.cpp */; };
 		8D725C86191CD6F7001BDF3A /* Cloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D725C83191CD6F7001BDF3A /* Cloud.cpp */; };
+		8D725C8A191CE890001BDF3A /* boom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D725C88191CE890001BDF3A /* boom.wav */; };
+		8D725C8B191CE890001BDF3A /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D725C89191CE890001BDF3A /* shoot.wav */; };
+		8D725C8E191CE896001BDF3A /* boom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D725C88191CE890001BDF3A /* boom.wav */; };
+		8D725C8F191CE89C001BDF3A /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8D725C89191CE890001BDF3A /* shoot.wav */; };
+		8D725C90191CE8A1001BDF3A /* progress_horizon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D725C68191CB025001BDF3A /* progress_horizon.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -349,6 +354,8 @@
 		8D725C7F191CD495001BDF3A /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = ../Classes/Background.h; sourceTree = "<group>"; };
 		8D725C83191CD6F7001BDF3A /* Cloud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cloud.cpp; path = ../Classes/Cloud.cpp; sourceTree = "<group>"; };
 		8D725C84191CD6F7001BDF3A /* Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cloud.h; path = ../Classes/Cloud.h; sourceTree = "<group>"; };
+		8D725C88191CE890001BDF3A /* boom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = boom.wav; path = SE/boom.wav; sourceTree = "<group>"; };
+		8D725C89191CE890001BDF3A /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shoot.wav; path = SE/shoot.wav; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -567,6 +574,8 @@
 				8D725C6D191CBC9E001BDF3A /* death.png */,
 				8D725C75191CD42B001BDF3A /* Cloud.plist */,
 				8D725C76191CD42B001BDF3A /* Cloud.png */,
+				8D725C88191CE890001BDF3A /* boom.wav */,
+				8D725C89191CE890001BDF3A /* shoot.wav */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -802,6 +811,7 @@
 				8D725C6E191CBC9E001BDF3A /* death.plist in Resources */,
 				8D3C0CAA191B8EF2001C7E93 /* Explosion.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				8D725C8B191CE890001BDF3A /* shoot.wav in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				8D5E7FE5191CAA0A002C67F2 /* progress.png in Resources */,
 				8D32E8A6191A34E500E342DC /* enemy.plist in Resources */,
@@ -819,6 +829,7 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				8D32E8871919F51900E342DC /* startBtn.png in Resources */,
+				8D725C8A191CE890001BDF3A /* boom.wav in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
@@ -833,6 +844,7 @@
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				8D3C0C85191B5099001C7E93 /* spaceships.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				8D725C8E191CE896001BDF3A /* boom.wav in Resources */,
 				8D3C0CAB191B8EF7001C7E93 /* Explosion.png in Resources */,
 				8D3C0C84191B5096001C7E93 /* startBtn.png in Resources */,
 				8D3C0C8D191B6091001C7E93 /* Shot.plist in Resources */,
@@ -843,9 +855,11 @@
 				8D725C6F191CBC9E001BDF3A /* death.plist in Resources */,
 				8D3C0C8E191B6094001C7E93 /* Shot.png in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
+				8D725C8F191CE89C001BDF3A /* shoot.wav in Resources */,
 				5087E75517EB910900C73F5D /* HelloWorld.png in Resources */,
 				8D725C78191CD42B001BDF3A /* Cloud.plist in Resources */,
 				8D5E7FE6191CAA0A002C67F2 /* progress.png in Resources */,
+				8D725C90191CE8A1001BDF3A /* progress_horizon.png in Resources */,
 				8D725C7A191CD42B001BDF3A /* Cloud.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
