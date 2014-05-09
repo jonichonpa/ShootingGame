@@ -40,11 +40,17 @@ private:
     void onGyro(cocos2d::Acceleration* acc, cocos2d::Event* event);
     // 衝突
     bool onContactBegin(cocos2d::PhysicsContact& contact);
+    // スコア更新
+    void updateScore();
     
     cocos2d::SEL_SCHEDULE chargeSEL;
     
     // プレーヤー
     Player *player;
+    
+    // ラベルとスコア
+    int score;
+    cocos2d::LabelTTF *scoreLabel;
 };
 
 #endif /* defined(__CharGame__MainScene__) */

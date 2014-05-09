@@ -50,7 +50,7 @@ bool MenuScene::init()
                                           "startBtn.png",
                                           "startBtn_press.png",
                                           CC_CALLBACK_1(MenuScene::pressStartBtn, this));
-    startBtn->setScale(1.5f);
+    startBtn->setScale(2.0f);
     startBtn->setPosition(Point(visibleSize.width/2 + origin.x,
                                 visibleSize.height/2 + origin.y - 100));
     

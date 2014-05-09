@@ -32,11 +32,25 @@ bool MainScene::init()
         return false;
     }
     
+    Size size = Director::getInstance()->getVisibleSize();
+    Point origin = Director::getInstance()->getVisibleOrigin();
+    
     // 背景はスカイブルー
-    //LayerColor* layer = cocos2d::LayerColor::create(Color4B(135,206,235,210));
-    //this->addChild(layer);
     Background* background = Background::create();
     this->addChild(background);
+    
+    // スコア表示
+    LabelTTF *label = LabelTTF::create("スコア", "Times", 40);
+    label->setAnchorPoint(Point::ZERO);
+    label->setPosition(Point(origin.x + 8, origin.y + size.height - label->getContentSize().height - 8));
+    this->addChild(label);
+    Point labelP = label->getPosition();
+    Size labelS = label->getContentSize();
+    scoreLabel = LabelTTF::create("", "Times", 40);
+    scoreLabel->setAnchorPoint(Point::ZERO);
+    scoreLabel->setPosition(Point(labelP.x + labelS.width + 16, labelP.y));
+    scoreLabel->setString(StringUtils::format("%d",score));
+    this->addChild(scoreLabel);
     
     player = Player::create();
     player->setPosition(100,100);
@@ -131,10 +145,12 @@ bool MainScene::onContactBegin(cocos2d::PhysicsContact &contact)
     if(result == NORMALSHOT_CATEGORY + ENEMY_CATEGORY) {
         pb_a->getNode()->removeFromParent();
         pb_b->getNode()->removeFromParent();
+        updateScore();
     } else if (result == POWERSHOT_CATEGORY + ENEMY_CATEGORY) {
     // パワーショットと敵
         auto enemy = pb_a->getTag() == ENEMY_TAG ? (Enemy*)pb_a->getNode() : (Enemy*)pb_b->getNode();
         enemy->removeFromParent();
+        updateScore();
     } else {
     // プレーヤーと敵
         player->removeFromParent();
@@ -144,4 +160,10 @@ bool MainScene::onContactBegin(cocos2d::PhysicsContact &contact)
         }
     }
     return true;
+}
+
+void MainScene::updateScore()
+{
+    score++;
+    scoreLabel->setString(StringUtils::format("%d",score));
 }
